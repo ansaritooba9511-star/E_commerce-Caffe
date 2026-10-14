@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet & Bean Café</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <div class="logo-icon">☕</div>
+        <div>
+            <h2>Velvet & Bean</h2>
+            <span>Café & Bakery</span>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-button" onclick="openCart()">
+        🛒 <span id="cartCount">0</span>
+    </button>
+
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+</header>
+
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="hero-tag">☕ Freshly brewed happiness</span>
+
+        <h1>
+            A little coffee,
+            <span>a lot of comfort.</span>
+        </h1>
+
+        <p>
+            Welcome to Velvet & Bean — your cozy corner for freshly brewed
+            coffee, delicious desserts and beautiful moments.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#menu" class="primary-btn">Explore Menu</a>
+            <a href="#about" class="secondary-btn">Our Story</a>
+        </div>
+
+        <div class="hero-info">
+            <div>
+                <strong>4.9★</strong>
+                <span>Customer Rating</span>
+            </div>
+
+            <div>
+                <strong>30+</strong>
+                <span>Menu Favorites</span>
+            </div>
+
+            <div>
+                <strong>8 AM</strong>
+                <span>Opening Time</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="blob"></div>
+
+        <div class="coffee-card">
+            <div class="coffee-cup">☕</div>
+            <span>Today's Pick</span>
+            <h3>Lavender Latte</h3>
+            <p>₹180</p>
+            <button onclick="addToCart('Lavender Latte', 180, '☕')">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="floating-card card-one">
+            ✨ Freshly baked
+        </div>
+
+        <div class="floating-card card-two">
+            🤎 Made with love
+        </div>
+    </div>
+</section>
+
+
+<section class="menu-section" id="menu">
+
+    <div class="section-heading">
+        <span>Our Menu</span>
+        <h2>Something delicious<br>for every mood.</h2>
+        <p>
+            Pick your favorite and make your coffee break a little happier.
+        </p>
+    </div>
+
+    <div class="menu-tools">
+
+        <div class="search-box">
+            🔍
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search coffee, cake, sandwich..."
+                oninput="searchMenu()"
+            >
+        </div>
+
+        <div class="category-buttons">
+            <button class="category active" onclick="filterMenu('all', this)">
+                All
+            </button>
+
+            <button class="category" onclick="filterMenu('coffee', this)">
+                Coffee
+            </button>
+
+            <button class="category" onclick="filterMenu('tea', this)">
+                Tea & Coolers
+            </button>
+
+            <button class="category" onclick="filterMenu('dessert', this)">
+                Desserts
+            </button>
+
+            <button class="category" onclick="filterMenu('snacks', this)">
+                Snacks
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+
+</section>
+
+
+<section class="special-section">
+
+    <div class="special-content">
+        <span>✨ Café Special</span>
+
+        <h2>
+            Sweet moments<br>
+            taste better together.
+        </h2>
+
+        <p>
+            Try our weekend combo and enjoy a freshly brewed coffee
+            with a homemade dessert.
+        </p>
+
+        <div class="special-price">
+            <del>₹420</del>
+            <strong>₹349</strong>
+        </div>
+
+        <button class="primary-btn" onclick="addCombo()">
+            Add Combo to Cart
+        </button>
+    </div>
+
+    <div class="special-visual">
+        <div class="special-circle">☕</div>
+        <div class="mini-dessert">🍰</div>
+        <div class="mini-cookie">🍪</div>
+    </div>
+
+</section>
+
+
+<section class="about-section" id="about">
+
+    <div class="about-image">
+        <div class="about-card">
+            <span>Since</span>
+            <strong>2021</strong>
+            <small>Brewing memories</small>
+        </div>
+    </div>
+
+    <div class="about-content">
+
+        <span class="section-label">Our Story</span>
+
+        <h2>
+            More than coffee,<br>
+            it's a feeling.
+        </h2>
+
+        <p>
+            Velvet & Bean started with a simple idea — create a warm little
+            place where people can slow down, enjoy good coffee and spend
+            time with the people they love.
+        </p>
+
+        <p>
+            From our carefully brewed coffee to freshly baked desserts,
+            everything is prepared with attention and a little extra love.
+        </p>
+
+        <div class="about-points">
+
+            <div>
+                <span>☕</span>
+                <p>
+                    <strong>Fresh Coffee</strong><br>
+                    Freshly brewed every day
+                </p>
+            </div>
+
+            <div>
+                <span>🥐</span>
+                <p>
+                    <strong>Fresh Bakery</strong><br>
+                    Baked with care
+                </p>
+            </div>
+
+            <div>
+                <span>💜</span>
+                <p>
+                    <strong>Cozy Space</strong><br>
+                    Made for good moments
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="contact-section" id="contact">
+
+    <div class="contact-card">
+
+        <div>
+            <span class="section-label">Come Say Hi</span>
+
+            <h2>
+                Your next cozy coffee break is waiting.
+            </h2>
+
+            <p>
+                Drop by, grab your favorite cup and stay for a while.
+            </p>
+        </div>
+
+        <div class="contact-details">
+            <p>📍 21 Lavender Street, Pune</p>
+            <p>📞 +91 98765 43210</p>
+            <p>✉️ hello@velvetbean.com</p>
+            <p>🕐 Mon - Sun · 8:00 AM - 10:00 PM</p>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        ☕ <strong>Velvet & Bean</strong>
+    </div>
+
+    <p>
+        Made with coffee, creativity & a little bit of magic. 💜
+    </p>
+
+    <span>© 2026 Velvet & Bean Café</span>
+
+</footer>
+
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)">
+
+    <div class="cart-panel" onclick="event.stopPropagation()">
+
+        <div class="cart-header">
+
+            <div>
+                <span>Your Order</span>
+                <h2>Shopping Cart</h2>
+            </div>
+
+            <button onclick="closeCart()">×</button>
+
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="empty-cart" id="emptyCart">
+
+            <div>🛒</div>
+
+            <h3>Your cart is empty</h3>
+
+            <p>
+                Add something delicious from our menu.
+            </p>
+
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="total-row">
+                <span>Total</span>
+                <strong>
+                    ₹<span id="cartTotal">0</span>
+                </strong>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">
+                Place Order
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="toast" id="toast">
+    Added to your cart 💜
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
